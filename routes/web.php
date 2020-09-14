@@ -14,10 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = \App\Models\Post::inRandomOrder()
+        ->get();
+
+    return view('welcome')->with(compact('posts'));
 });
 
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::resource('categories', 'CategoryController');
+
+    Route::resource('posts', 'PostController');
+
+    Route::resource('postComments', 'PostCommentController');
+});
