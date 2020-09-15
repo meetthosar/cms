@@ -49,3 +49,25 @@ Following endpoints are added:
 - POST : /api/post - Store new post. Authentication required.
 
 Instead of any client you can check api endpoints with Feature tests which are added under "tests/Feature/" folder.
+
+# Installation Steps
+
+#1
+- Clone Repository
+- Composer update
+- Rename .env.example to .env
+- Change database connection details
+- Import db file from "DB/" folder
+- php artisan key:generate
+- php artisan serve
+
+#2
+- Clone Repository
+- Composer update
+- Rename .env.example to .env
+- Change database connection details
+- php artisan migrate
+- composer dump-autoload
+- php artisan db:seed (Need to change one normal user to admin manually)
+- php artisan key:generate
+- php artisan serve
