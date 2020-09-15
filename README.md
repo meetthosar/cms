@@ -13,7 +13,7 @@ Problem statement
 
 The Following functionalities are completed:
 # Before Login
-- Landing page will show all published posts.
+- Landing page will show all published posts. Posts are shown in random order.
 - Posts listing will show post image, post title and post tags.
 - By clicking tags, user can view all posts which have that tag
 - Right top corner show simple search form which can be used to search post by keywords. It searches in post titles.
@@ -31,7 +31,7 @@ The Following functionalities are completed:
 - After every registration, default user type will be author.
 - Admin can view all posts and tags.
 - Admin can manage all tags.
-- Admin view and edit other author's posts.
+- Admin can view and edit other author's posts.
 - Author can view only his posts and can edit them.
 - Author can choose tags from available list or can add new tags by selecting "Other" option from tags list in create / update post page.
 - Author can upload single image for the post. Image is optional for post.
