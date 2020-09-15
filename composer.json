@@ -20,7 +20,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "laravelcollective/html": "^6.1",
-        "yajra/laravel-auditable": "^4.3"
+        "yajra/laravel-auditable": "^4.3",
+        "laravel/passport": "^9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -33,7 +33,13 @@ class PostController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $posts = $this->postRepository->all();
+        $user = auth()->user();
+        if ($user->isAdmin())
+            $posts = $this->postRepository->all();
+        else {
+            $conditions['created_by'] = $user->id;
+            $posts = $this->postRepository->all($conditions);
+        }
 
         return view('posts.index')
             ->with('posts', $posts);
@@ -208,7 +214,6 @@ class PostController extends AppBaseController
     }
 
     private function savePostImage($request, $post){
-
 
         if($request->file('image') != '') {
 

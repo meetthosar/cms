@@ -116,11 +116,13 @@ abstract class BaseRepository
      *
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      */
-    public function all($search = [], $skip = null, $limit = null, $columns = ['*'])
+    public function all($search = [], $skip = null, $limit = null, $columns = ['*'],$perPage = 15)
     {
         $query = $this->allQuery($search, $skip, $limit);
-
-        return $query->get($columns);
+        if($perPage > 0)
+            return $query->paginate($perPage,$columns);
+        else
+            return $query->get($columns);
     }
 
     /**

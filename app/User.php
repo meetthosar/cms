@@ -6,10 +6,15 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;
+use jeremykenedy\LaravelRoles\Traits\RoleHasRelations;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasRoleAndPermission;
+    use HasApiTokens;
 //    use SoftDeletes;
     /**
      * The attributes that are mass assignable.

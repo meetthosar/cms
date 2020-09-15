@@ -87,4 +87,24 @@ class Post extends Model
             ->join('categories AS cat', 'cat.id', '=', 'pt.category_id')
             ->where('post_id', $this->id)->get();
     }
+
+    public function savePostTags( $input){
+        $tags = $input['category_id'];
+        if(in_array('other', $tags)) {
+            if($input['category'] != '') {
+                $tagArray = explode(',', $input['category']);
+                unset($tags[array_search('other',$tags)]);
+                foreach ($tagArray as $tag) {
+                    $tagMo = Category::firstOrCreate(['category_name' => $tag]);
+                    $tags[] = $tagMo->id;
+                }
+            }
+        }
+
+        PostTag::where('post_id', $this->id)->whereNotIn('category_id', $tags)->delete();
+        foreach ($tags as $tag){
+            PostTag::firstOrCreate(['post_id' => $this->id, 'category_id' => $tag]);
+        }
+
+    }
 }

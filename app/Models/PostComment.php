@@ -5,6 +5,7 @@ namespace App\Models;
 use App\User;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Yajra\Auditable\AuditableTrait;
 
 /**
  * Class PostComment
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PostComment extends Model
 {
     use SoftDeletes;
+    use AuditableTrait;
 
     public $table = 'post_comments';
 

@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'singular' => 'Category',
-  'plural' => 'Categories',
+  'singular' => 'Tag',
+  'plural' => 'Tags',
   'fields' =>
   array (
     'id' => 'Id',

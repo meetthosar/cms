@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="text-center">
-        
+            {!! $posts->appends(Request::all())->links(); !!}
         </div>
     </div>
 @endsection
